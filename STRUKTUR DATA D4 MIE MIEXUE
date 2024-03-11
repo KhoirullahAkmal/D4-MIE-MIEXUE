@@ -1,0 +1,34 @@
+print("===========================")
+print("Selamat datang di toko kami")
+print("===========================")
+
+class Node:
+    def _init_(self, menu, harga):
+        self.menu = menu
+        self.harga = harga
+        self.jumlah = 0
+        self.next = None
+
+class LinkedList:
+    def _init_(self):
+        self.head = None
+
+    def tambah_pesanan(self, menu, harga, jumlah):
+        new_node = Node(menu, harga)
+        new_node.jumlah = jumlah
+        if not self.head:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def tampilkan_pesanan(self):
+        current = self.head
+        if not current:
+            print("Keranjang masih kosong")
+            return
+        while current:
+            print(f"{current.menu} {current.harga} Rupiah")
+            current = current.next
