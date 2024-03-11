@@ -32,3 +32,31 @@ class LinkedList:
         while current:
             print(f"{current.menu} {current.harga} Rupiah")
             current = current.next
+    def total_harga(self):
+        current = self.head
+        total = 0
+        while current:
+            total += current.harga * current.jumlah
+            current = current.next
+        return total
+
+# Inisialisasi menu Miexue
+miexue_menu = {
+    "miexue ice cream": 5000,
+    "boba shake": 16000,
+    "mi sundae": 14000,
+    "mi ganas": 11000,
+    "creamy mango boba": 22000
+}
+
+# Mmenambahkan fungsi untuk input pesanan
+def pesan_menu(menu, jumlah):
+    menu = menu.lower()
+    if menu in miexue_menu:
+        pesanan.tambah_pesanan(menu, miexue_menu[menu], jumlah)
+        print(f"{jumlah} {menu} telah ditambahkan ke keranjang")
+    else:
+        print("Menu tidak tersedia")
+
+# Inisialisasi linked list untuk pesanan
+pesanan = LinkedList()
