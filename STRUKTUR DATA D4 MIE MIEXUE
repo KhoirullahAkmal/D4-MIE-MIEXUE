@@ -49,7 +49,7 @@ miexue_menu = {
     "creamy mango boba": 22000
 }
 
-# Mmenambahkan fungsi untuk input pesanan
+# Menambahkan fungsi untuk input pesanan
 def pesan_menu(menu, jumlah):
     menu = menu.lower()
     if menu in miexue_menu:
@@ -60,3 +60,26 @@ def pesan_menu(menu, jumlah):
 
 # Inisialisasi linked list untuk pesanan
 pesanan = LinkedList()
+
+# Daftar Menu
+print("Daftar Menu:")
+for menu, harga in miexue_menu.items():
+    print(f"{menu.capitalize()} - {harga} Rupiah")
+
+# Proses pemesanan
+while True:
+    pilihan_menu = input("Silakan pilih menu (ketik 'selesai' untuk mengakhiri): ").lower()
+    if pilihan_menu == 'selesai':
+        break
+    jumlah_pesanan = int(input("Masukkan jumlah pesanan: "))
+    pesan_menu(pilihan_menu, jumlah_pesanan)
+
+
+# Tampilkan pesanan dan total harga
+print("Pesanan Anda:")
+pesanan.tampilkan_pesanan()
+print("Total harga yang harus dibayarkan:", pesanan.total_harga(), "Rupiah.")
+
+print("==========================================")
+print("Terima kasih sudah berbelanja di toko kami")
+print("==========================================")
